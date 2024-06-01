@@ -9,16 +9,26 @@ let db,
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'rap'
 
-MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+// MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+//     .then(client => {
+//         console.log(`Connected to ${dbName} Database`)
+//         db = client.db(dbName)
+//     })
+  MongoClient.connect(dbConnectionStr)
     .then(client => {
-        console.log(`Connected to ${dbName} Database`)
-        db = client.db(dbName)
+        console.log(`Connected to ${dbName} Database`);
+        db = client.db(dbName);
     })
-    
+    .catch(err => {
+        console.error('Failed to connect to the database', err);
+        process.exit(1); // Exit process with failure
+    });
+
+
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+// app.use(express.json())
 
 
 app.get('/',(request, response)=>{
