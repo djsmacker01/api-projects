@@ -17,7 +17,7 @@ let db,
   MongoClient.connect(dbConnectionStr)
     .then(client => {
         console.log(`Connected to ${dbName} Database`);
-        db = client.db(dbName);
+        // db = client.db(dbName);
     })
     .catch(err => {
         console.error('Failed to connect to the database', err);
