@@ -52,3 +52,5 @@ async function addLike(){
         console.log(err)
     }
 }
+
+// App Check debug token: 21efa125-ff6b-4205-bc95-21954348de18. You will need to add it to your app's App Check settings in the Firebase console for it to work.
