@@ -50,6 +50,7 @@ async function addLike(){
 
     }catch(err){
         console.log(err)
+        
     }
 }
 
